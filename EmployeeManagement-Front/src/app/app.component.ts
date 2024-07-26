@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {list} from "postcss";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'EmployeeManagement-Front';
+  protected readonly list = list;
 }
