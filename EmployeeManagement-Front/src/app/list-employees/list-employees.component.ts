@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EmployeeService} from "../services/employee.service";
-import {data} from "autoprefixer";
 import {Employee} from "../services/models/Employee";
 
 @Component({
@@ -8,11 +7,15 @@ import {Employee} from "../services/models/Employee";
   templateUrl: './list-employees.component.html',
   styleUrl: './list-employees.component.scss'
 })
-export class ListEmployeesComponent {
-  constructor(private employeeService: EmployeeService) {
+export class ListEmployeesComponent implements OnInit{
+  constructor(private employeeService: EmployeeService){
   }
+
+  ngOnInit(): void {
+    this.getEmployee();
+    }
   employees:Array<Employee>=[];
-  getAllEmployees(){
+  getEmployee(){
     this.employeeService.getEmployees().subscribe({
       next:data=>{
         this.employees=data
@@ -21,5 +24,10 @@ export class ListEmployeesComponent {
         console.log(err)
       }
     })
+  }
+  deleteEmployee(emp:Employee){
+    this.employeeService.deleteEmployee(emp.id).subscribe({
+      next:() => this.getEmployee()
+    });
   }
 }

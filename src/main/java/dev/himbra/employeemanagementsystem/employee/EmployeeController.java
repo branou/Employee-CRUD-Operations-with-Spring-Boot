@@ -1,6 +1,8 @@
 package dev.himbra.employeemanagementsystem.employee;
 
 import dev.himbra.employeemanagementsystem.base.PageResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmployeeController {
     private final EmployeeService employeeService;
+    @Operation(summary = "find all employees")
     @GetMapping("")
     public ResponseEntity<PageResponse<Employee>> findAll(@RequestParam int page,@RequestParam int size){
         return ResponseEntity.ok(employeeService.findAllEmployees(page,size));
