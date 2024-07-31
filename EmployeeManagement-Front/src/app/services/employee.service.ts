@@ -14,5 +14,11 @@ export class EmployeeService {
   deleteEmployee(id:number){
     return this.http.delete<any>(`${this.url}/delete/${id}`);
   }
+  updateEmployee(id:number,emp:Employee){
+    return this.http.put<number>(`${this.url}/update/${id}`,emp);
+  }
 
+  saveEmployee(emp: Employee) {
+    return this.http.post<any>(`${this.url}/save`,emp);
+  }
 }

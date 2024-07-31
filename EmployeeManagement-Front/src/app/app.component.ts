@@ -7,6 +7,4 @@ import {list} from "postcss";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'EmployeeManagement-Front';
-  protected readonly list = list;
 }

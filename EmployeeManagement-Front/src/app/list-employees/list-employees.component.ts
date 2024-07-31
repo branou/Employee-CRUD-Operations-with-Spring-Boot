@@ -10,7 +10,8 @@ import {Employee} from "../services/models/Employee";
 export class ListEmployeesComponent implements OnInit{
   constructor(private employeeService: EmployeeService){
   }
-
+  //make a form and this var emp gets the changed variables
+  emp?:Employee
   ngOnInit(): void {
     this.getEmployee();
     }
@@ -27,7 +28,14 @@ export class ListEmployeesComponent implements OnInit{
   }
   deleteEmployee(emp:Employee){
     this.employeeService.deleteEmployee(emp.id).subscribe({
-      next:() => this.getEmployee()
+      next:() => this.getEmployee(),
+      error: (err) => console.error('Error deleting employee', err)
     });
+  }
+  updateEmployee(emp:Employee){
+    this.employeeService.updateEmployee(emp.id,emp).subscribe({
+      next:()=> this.getEmployee(),
+      error: (err) => console.error('Error updating employee', err)
+    })
   }
 }
