@@ -10,9 +10,9 @@ public record EmployeeReq(
         String firstname,
         @NotBlank(message = "lastname is mandatory")
         String lastname,
-        @NotEmpty(message = "Salary is mandatory") @Positive(message = "Salary must be positive")
+        @NotNull(message = "Salary is mandatory") @Positive(message = "Salary must be positive")
         double salary,
-        @NotEmpty(message = "age is empty")
+        @NotNull(message = "age is empty")
         int age
 ) {
 }
