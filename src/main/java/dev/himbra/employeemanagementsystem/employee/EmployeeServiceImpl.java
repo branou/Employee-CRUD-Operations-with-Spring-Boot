@@ -16,9 +16,9 @@ public class EmployeeServiceImpl implements EmployeeService{
     private final EmployeeRepository employeeRepository;
     @Override
     public Long createEmployee(EmployeeReq employee) {
-        Employee emp=Employee.builder()
-                .id(null).firstname(employee.firstname())
-                .lastname(employee.lastname()).age(employee.age())
+        Employee emp=Employee.builder().firstname(employee.firstname())
+                .lastname(employee.lastname())
+                .age(employee.age())
                 .salary(employee.salary())
                 .build();
         return employeeRepository.save(emp).getId();
@@ -61,5 +61,10 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
     public List<Employee> findAll(){
         return employeeRepository.findAll();
+    }
+
+    @Override
+    public List<Employee> search(String firstname) {
+        return employeeRepository.findByFirstname(firstname);
     }
 }
