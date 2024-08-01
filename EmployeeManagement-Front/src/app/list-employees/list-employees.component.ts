@@ -10,8 +10,6 @@ import {Employee} from "../services/models/Employee";
 export class ListEmployeesComponent implements OnInit{
   constructor(private employeeService: EmployeeService){
   }
-  //make a form and this var emp gets the changed variables
-  emp?:Employee
   ngOnInit(): void {
     this.getEmployee();
     }
@@ -36,6 +34,13 @@ export class ListEmployeesComponent implements OnInit{
     this.employeeService.updateEmployee(emp.id,emp).subscribe({
       next:()=> this.getEmployee(),
       error: (err) => console.error('Error updating employee', err)
+    })
+  }
+  firstname:string='';
+  search() {
+    this.employeeService.searchEmployee(this.firstname).subscribe({
+      next: data=>this.employees=data,
+      error: err => console.log(err)
     })
   }
 }

@@ -21,4 +21,7 @@ export class EmployeeService {
   saveEmployee(emp: Employee) {
     return this.http.post<any>(`${this.url}/save`,emp);
   }
+  searchEmployee(firstname:string){
+    return this.http.get<Array<Employee>>(`${this.url}/search/${firstname}`);
+  }
 }
