@@ -8,12 +8,14 @@ import {HttpClientModule} from "@angular/common/http";
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     ListEmployeesComponent,
     AddEmployeeComponent,
     NavbarComponent,
+    FooterComponent,
   ],
     imports: [
         BrowserModule,
