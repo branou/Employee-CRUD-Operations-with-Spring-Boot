@@ -9,7 +9,7 @@ export class EmployeeService {
   url:string='http://localhost:8080/api/employee';
   constructor(private http:HttpClient) { }
   getEmployees(){
-    return this.http.get<Array<Employee>>(`${this.url}/all`);
+    return this.http.get<Array<Employee>>(`${this.url}/?page=1&size=1`);
   }
   deleteEmployee(id:number){
     return this.http.delete<any>(`${this.url}/delete/${id}`);

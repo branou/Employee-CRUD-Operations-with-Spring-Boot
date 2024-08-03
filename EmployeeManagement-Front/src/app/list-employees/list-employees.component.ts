@@ -11,10 +11,10 @@ export class ListEmployeesComponent implements OnInit{
   constructor(private employeeService: EmployeeService){
   }
   ngOnInit(): void {
-    this.getEmployee();
+    this.getEmployees();
     }
   employees:Array<Employee>=[];
-  getEmployee(){
+  getEmployees(){
     this.employeeService.getEmployees().subscribe({
       next:data=>{
         this.employees=data
@@ -26,13 +26,13 @@ export class ListEmployeesComponent implements OnInit{
   }
   deleteEmployee(emp:Employee){
     this.employeeService.deleteEmployee(emp.id).subscribe({
-      next:() => this.getEmployee(),
+      next:() => this.getEmployees(),
       error: (err) => console.error('Error deleting employee', err)
     });
   }
   updateEmployee(emp:Employee){
     this.employeeService.updateEmployee(emp.id,emp).subscribe({
-      next:()=> this.getEmployee(),
+      next:()=> this.getEmployees(),
       error: (err) => console.error('Error updating employee', err)
     })
   }
