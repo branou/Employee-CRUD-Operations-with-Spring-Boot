@@ -17,7 +17,8 @@ public class EmployeeController {
     private final EmployeeService employeeService;
     @Operation(summary = "find all employees")
     @GetMapping("")
-    public ResponseEntity<PageResponse<Employee>> findAll(@RequestParam int page,@RequestParam int size){
+    public ResponseEntity<PageResponse<Employee>> findAll(@RequestParam(name="page",defaultValue = "0",required = false) int page,
+                                                          @RequestParam(name = "size", defaultValue = "10",required = false) int size){
         return ResponseEntity.ok(employeeService.findAllEmployees(page,size));
     }
     @GetMapping("/all")
