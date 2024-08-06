@@ -16,6 +16,9 @@ export class EmployeeService {
   updateEmployee(id:number,emp:Employee){
     return this.http.put<number>(`${this.url}/update/${id}`,emp);
   }
+  getEmployee(id:number){
+    return this.http.get<Employee>(`${this.url}/${id}`)
+  }
 
   saveEmployee(emp: Employee) {
     return this.http.post<any>(`${this.url}/save`,emp);

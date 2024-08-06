@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/employee")
@@ -41,6 +42,12 @@ public class EmployeeController {
     @GetMapping("/search/{firstname}")
     public ResponseEntity<List<Employee>> search(@PathVariable String firstname){
         return ResponseEntity.ok(employeeService.search(firstname));
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Employee> findEmployeeById(@PathVariable Long id){
+        Optional<Employee> employee=employeeService.findById(id);
+        return employee.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 }
