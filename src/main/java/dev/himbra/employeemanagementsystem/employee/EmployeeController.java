@@ -30,7 +30,7 @@ public class EmployeeController {
     public ResponseEntity<Long> saveEmployee(@Valid @RequestBody EmployeeReq employee){
         return ResponseEntity.ok(employeeService.createEmployee(employee));
     }
-    @PatchMapping("/update/{id}")
+    @PutMapping ("/update/{id}")
     public ResponseEntity<Long> updateEmployee(@Valid @RequestBody EmployeeReq employeeReq,@PathVariable Long id){
         return ResponseEntity.ok(employeeService.updateEmployee(id,employeeReq));
     }
