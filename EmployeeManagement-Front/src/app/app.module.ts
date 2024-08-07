@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FooterComponent } from './footer/footer.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { AboutComponent } from './about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
     NavbarComponent,
     FooterComponent,
     UpdateEmployeeComponent,
+    AboutComponent,
   ],
     imports: [
         BrowserModule,
