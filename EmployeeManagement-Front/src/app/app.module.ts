@@ -11,6 +11,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FooterComponent } from './footer/footer.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { AboutComponent } from './about/about.component';
+import { ErrorComponent } from './error/error.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,8 @@ import { AboutComponent } from './about/about.component';
     FooterComponent,
     UpdateEmployeeComponent,
     AboutComponent,
+    ErrorComponent,
+    SpinnerComponent,
   ],
     imports: [
         BrowserModule,
