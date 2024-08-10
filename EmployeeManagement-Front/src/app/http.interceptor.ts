@@ -5,9 +5,7 @@ import {finalize} from "rxjs";
 
 export const httpInterceptor: HttpInterceptorFn = (req, next) => {
     const spinnerService = inject(LoadingService); // Inject the SpinnerService
-
     spinnerService.show(); // Show the spinner
-
     return next(req).pipe(
         finalize(() => {
             spinnerService.hide(); // Hide the spinner when the request completes

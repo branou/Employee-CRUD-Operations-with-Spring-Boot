@@ -4,6 +4,7 @@ import {ListEmployeesComponent} from "./list-employees/list-employees.component"
 import {AddEmployeeComponent} from "./add-employee/add-employee.component";
 import {UpdateEmployeeComponent} from "./update-employee/update-employee.component";
 import {AboutComponent} from "./about/about.component";
+import {ErrorComponent} from "./error/error.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'about',
     component: AboutComponent
+  },
+  {
+    path:'404',
+    component:ErrorComponent
   }
 ];
 
