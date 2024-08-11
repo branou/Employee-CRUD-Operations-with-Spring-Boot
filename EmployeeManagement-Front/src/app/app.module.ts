@@ -13,6 +13,8 @@ import { AboutComponent } from './about/about.component';
 import { ErrorComponent } from './error/error.component';
 import {httpInterceptor} from "./http.interceptor";
 import { SpinnerComponent } from './spinner/spinner.component';
+import { LoginComponent } from './login/login.component';
+import { AdminCatalogComponent } from './admin-catalog/admin-catalog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +26,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     AboutComponent,
     ErrorComponent,
     SpinnerComponent,
+    LoginComponent,
+    AdminCatalogComponent,
   ],
     imports: [
         BrowserModule,

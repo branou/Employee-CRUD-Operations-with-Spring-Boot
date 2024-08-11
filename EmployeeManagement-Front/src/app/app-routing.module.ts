@@ -5,27 +5,39 @@ import {AddEmployeeComponent} from "./add-employee/add-employee.component";
 import {UpdateEmployeeComponent} from "./update-employee/update-employee.component";
 import {AboutComponent} from "./about/about.component";
 import {ErrorComponent} from "./error/error.component";
+import {LoginComponent} from "./login/login.component";
+import {AdminCatalogComponent} from "./admin-catalog/admin-catalog.component";
 
 const routes: Routes = [
   {
-    path:'listAll',
-  component: ListEmployeesComponent
+    path:'admin',
+    component:AdminCatalogComponent,
+    children:[
+      {
+        path:'listAll',
+        component: ListEmployeesComponent
+      },
+      {
+        path:'addEmp',
+        component: AddEmployeeComponent
+      },
+      {
+        path:'updateEmp/:id',
+        component: UpdateEmployeeComponent
+      },
+      {
+        path:'about',
+        component: AboutComponent
+      },
+      {
+        path:'404',
+        component:ErrorComponent
+      }
+    ]
   },
   {
-    path:'addEmp',
-    component: AddEmployeeComponent
-  },
-  {
-    path:'updateEmp/:id',
-    component: UpdateEmployeeComponent
-  },
-  {
-    path:'about',
-    component: AboutComponent
-  },
-  {
-    path:'404',
-    component:ErrorComponent
+    path:'login',
+    component:LoginComponent
   }
 ];
 
