@@ -7,6 +7,7 @@ import {AboutComponent} from "./about/about.component";
 import {ErrorComponent} from "./error/error.component";
 import {LoginComponent} from "./login/login.component";
 import {AdminCatalogComponent} from "./admin-catalog/admin-catalog.component";
+import {RegisterComponent} from "./register/register.component";
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path:'login',
     component:LoginComponent
+  },
+  {
+    path:'signup',
+    component:RegisterComponent
   }
 ];
 

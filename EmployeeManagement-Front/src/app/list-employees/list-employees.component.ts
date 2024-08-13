@@ -32,7 +32,7 @@ export class ListEmployeesComponent implements OnInit{
     });
   }
   updateEmployee(emp:Employee){
-    this.router.navigate(['updateEmp',emp.id])
+    this.router.navigate(['admin/updateEmp',emp.id])
   }
   firstname:string='';
   search() {

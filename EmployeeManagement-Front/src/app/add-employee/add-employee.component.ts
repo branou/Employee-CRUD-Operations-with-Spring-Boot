@@ -28,7 +28,7 @@ export class AddEmployeeComponent implements OnInit{
     this.employeeService.saveEmployee(emp).subscribe({
       next : ()=>{
         confirm("employee created successfully");
-        this.router.navigate(['listAll']);
+        this.router.navigate(['admin/listAll']);
       },
       error: err =>console.log('Error creating employee:', err)
     })

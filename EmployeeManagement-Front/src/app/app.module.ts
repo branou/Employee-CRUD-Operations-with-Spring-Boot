@@ -15,6 +15,7 @@ import {httpInterceptor} from "./http.interceptor";
 import { SpinnerComponent } from './spinner/spinner.component';
 import { LoginComponent } from './login/login.component';
 import { AdminCatalogComponent } from './admin-catalog/admin-catalog.component';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { AdminCatalogComponent } from './admin-catalog/admin-catalog.component';
     SpinnerComponent,
     LoginComponent,
     AdminCatalogComponent,
+    RegisterComponent,
   ],
     imports: [
         BrowserModule,

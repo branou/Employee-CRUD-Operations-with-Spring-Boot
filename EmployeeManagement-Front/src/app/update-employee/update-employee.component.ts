@@ -37,7 +37,7 @@ export class UpdateEmployeeComponent implements OnInit{
     this.employeeService.updateEmployee(this.id,emp).subscribe({
       next : ()=>{
         confirm("employee updated successfully");
-        this.router.navigate(['listAll']);
+        this.router.navigate(['admin/listAll']);
       },
       error: err =>console.log('Error updating employee:', err)
     })
