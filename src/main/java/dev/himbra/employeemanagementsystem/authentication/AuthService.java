@@ -21,13 +21,13 @@ public class AuthService {
     private final AdminRepository adminRepository;
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
-    public String login(LoginRequest loginRequest){
+    public AuthenticationResponse login(LoginRequest loginRequest){
         Authentication authentication=authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),loginRequest.getPassword()));
         String token=null;
         try{
         token=jwtService.generateToken((Admin)authentication.getPrincipal());}
         catch (Exception e){e.printStackTrace();}
-        return token;
+        return AuthenticationResponse.builder().token(token).build();
     }
     public void register(RegisterRequest registerRequest){
         Role role = roleRepository.findByName("ADMIN").orElseThrow(() -> new IllegalStateException("ROLE user was not initiated"));
