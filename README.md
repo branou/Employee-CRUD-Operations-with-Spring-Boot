@@ -7,6 +7,9 @@ Validation: Ensure data integrity and security
 
 Technologies:
 Backend: Spring Boot, spring Data Jpa-Hibernate, PostgreSQL
+
 Containerization: Docker
-Frontend: AngularJs
-Security: Spring Security
+
+Frontend: AngularJs, Tailwind Css
+
+Security: Spring Security(Jwt Token)
