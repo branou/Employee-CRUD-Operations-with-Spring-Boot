@@ -3,13 +3,15 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../services/auth.service";
 import {LoginRequest} from "../services/models/LoginRequest";
+import {TokenService} from "../services/token.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit{
-   constructor(private fb:FormBuilder,private router:Router,private authSer:AuthService) {
+   constructor(private fb:FormBuilder,private router:Router,private authSer:AuthService,
+               private tokenService:TokenService) {
   }
   loginForm!:FormGroup
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class LoginComponent implements OnInit{
       if (value) {
         this.tokenn = value.token as string;
         this.router.navigate(['admin/listAll']);
-        localStorage.setItem('token', this.tokenn);
+        this.tokenService.setToken(this.tokenn);
       }
     })
         .catch(err => {
