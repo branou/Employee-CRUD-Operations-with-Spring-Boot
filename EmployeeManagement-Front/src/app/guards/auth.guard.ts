@@ -6,7 +6,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   const router=inject(Router);
   const tokenService=inject(TokenService);
   if(tokenService.isTokenNotValid()){
-    router.navigate(['signin']);
+    router.navigate(['login']);
     return false;
   }
   return true;

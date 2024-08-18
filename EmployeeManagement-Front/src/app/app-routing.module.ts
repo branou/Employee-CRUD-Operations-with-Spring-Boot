@@ -8,6 +8,7 @@ import {ErrorComponent} from "./error/error.component";
 import {LoginComponent} from "./login/login.component";
 import {AdminCatalogComponent} from "./admin-catalog/admin-catalog.component";
 import {RegisterComponent} from "./register/register.component";
+import {authGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -16,25 +17,25 @@ const routes: Routes = [
     children:[
       {
         path:'listAll',
-        component: ListEmployeesComponent
+        component: ListEmployeesComponent,canActivate:[authGuard]
       },
       {
         path:'addEmp',
-        component: AddEmployeeComponent
+        component: AddEmployeeComponent,canActivate:[authGuard]
       },
       {
         path:'updateEmp/:id',
-        component: UpdateEmployeeComponent
+        component: UpdateEmployeeComponent,canActivate:[authGuard]
       },
       {
         path:'about',
-        component: AboutComponent
+        component: AboutComponent,canActivate:[authGuard]
       },
       {
         path:'404',
-        component:ErrorComponent
+        component:ErrorComponent,canActivate:[authGuard]
       }
-    ]
+    ],canActivate:[authGuard]
   },
   {
     path:'login',
